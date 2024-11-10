@@ -1,9 +1,10 @@
-import { Box, Button } from "@mui/material";
+import BannerMain from "@/components/BannerMain";
+import { Box } from "@mui/material";
 
 export default function Home() {
   return (
-    <Box mt={64}>
-      <Button>This button has disabled ripples.</Button>
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <BannerMain src={"/images/banner-main.png"} />
     </Box>
   );
 }
