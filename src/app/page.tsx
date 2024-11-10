@@ -1,9 +1,9 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 export default function Home() {
   return (
-    <div >
+    <Box mt={64}>
       <Button>This button has disabled ripples.</Button>
-    </div>
+    </Box>
   );
 }

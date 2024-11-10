@@ -4,6 +4,8 @@ import { Roboto } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from "./theme";
+import { Container, CssBaseline } from "@mui/material";
+import AppAppBar from "@/components/AppAppBar";
 
 const roboto = Roboto({
   weight: '400',
@@ -25,7 +27,15 @@ export default function RootLayout({
       <body className={roboto.className}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            {children}
+            <CssBaseline enableColorScheme />
+            <AppAppBar />
+            <Container
+              maxWidth="xl"
+              component="main"
+              sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
+            >
+              {children}
+            </Container>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
