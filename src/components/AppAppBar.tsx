@@ -3,6 +3,7 @@ import * as React from 'react';
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem, Stack } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { styled } from '@mui/material/styles';
+import { Link as ScrollLink } from 'react-scroll';
 
 const pages = ['Quem Somos', 'Onde Estamos', 'Equipe', 'Parceiros'];
 
@@ -27,9 +28,9 @@ export default function AppAppBar() {
   };
 
   return (
-    <AppBar position="static" color="primary">
+    <AppBar position="fixed" color="primary">
       <Container maxWidth="xl">
-        <StyledToolbar disableGutters>
+        <StyledToolbar>
           <Box
             component="img"
             src="/images/logo-512x512.png"
@@ -76,7 +77,18 @@ export default function AppAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <ScrollLink
+                      to={page.toLowerCase().replace(' ', '-')}  // O "to" corresponde ao ID da seção
+                      smooth={true}
+                      duration={500}
+                      offset={-70}  // Ajuste da posição para considerar o AppBar fixo
+                      color="inherit"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      {page}
+                    </ScrollLink>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -90,7 +102,16 @@ export default function AppAppBar() {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'inherit' }}
                 >
-                  {page}
+                  <ScrollLink
+                    to={page.toLowerCase().replace(' ', '-')}  // O "to" corresponde ao ID da seção
+                    smooth={true}
+                    duration={500}
+                    offset={-70}  // Ajuste da posição para considerar o AppBar fixo
+                    color="inherit"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    {page}
+                  </ScrollLink>
                 </Button>
               ))}
             </Stack>

@@ -32,7 +32,7 @@ export default function RootLayout({
             <Container
               maxWidth="xl"
               component="main"
-              sx={{ display: 'flex', flexDirection: 'column', my: 3, gap: 1 }}
+              sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 3 }}
             >
               {children}
             </Container>
